@@ -236,8 +236,8 @@ namespace ToolLib.VisionJob
             myJob.D_itemAndSource.Clear();
             for (int i = 0; i < myJob.L_toolList.Count; i++)
             {
-                TreeNode node = myJob.GetJobTree().Nodes.Add(myJob.L_toolList[i].toolName);
-                for (int j = 0; j < myJob.L_toolList[i].toolInput.Count; j++)
+                TreeNode node = myJob.GetJobTree().Nodes.Add(myJob.L_toolList[i]?.toolName);
+                for (int j = 0; j < myJob.L_toolList[i]?.toolInput.Count; j++)
                 {
                     TreeNode treeNode;
                     //因为OutputBox只有源，所以此处特殊处理
@@ -264,7 +264,7 @@ namespace ToolLib.VisionJob
                         myJob.D_itemAndSource.Add(treeNode, myJob.GetToolIONodeByNodeText(toolNodeText, "-->" + toolIONodeText));
                     }
                 }
-                for (int k = 0; k < myJob.L_toolList[i].toolOutput.Count; k++)
+                for (int k = 0; k < myJob.L_toolList[i]?.toolOutput.Count; k++)
                 {
                     TreeNode treeNode = node.Nodes.Add("-->" + myJob.L_toolList[i].toolOutput[k].IOName);
 
