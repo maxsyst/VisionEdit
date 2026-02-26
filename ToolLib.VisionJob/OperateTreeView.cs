@@ -87,17 +87,17 @@ namespace ToolLib.VisionJob
             
             IToolInfo insertTool = VisionToolFactory.CreateToolVision(tool, toolName);
             TreeNode insertNode = new TreeNode();
-            insertNode = GetJobTree(jobName).Nodes.Add("", insertTool.toolName, (int)tool, (int)tool); // 该工具对应的节点
+            insertNode = GetJobTree(jobName).Nodes.Add("", insertTool?.toolName, (int)tool, (int)tool); // 该工具对应的节点
             // 判断节点是否添加默认输入输出图
             // 输入
-            for (int i = 0; i < insertTool.toolInput.Count; i++)
+            for (int i = 0; i < insertTool?.toolInput.Count; i++)
             {
                 TreeNode childrenInputNode = insertNode.Nodes.Add("<--" + insertTool.toolInput[i].IOName);
                 childrenInputNode.Tag = insertTool.toolInput[i].ioType;
                 childrenInputNode.ForeColor = Color.DarkMagenta;
             }
             // 输出
-            for (int i = 0; i < insertTool.toolOutput.Count; i++)
+            for (int i = 0; i < insertTool?.toolOutput.Count; i++)
             {
                 TreeNode childrenOutputNode = insertNode.Nodes.Add("-->" + insertTool.toolOutput[i].IOName);
                 childrenOutputNode.Tag = insertTool.toolOutput[i].ioType;

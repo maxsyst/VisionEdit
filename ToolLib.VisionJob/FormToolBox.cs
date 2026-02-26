@@ -47,7 +47,7 @@ namespace ToolLib.VisionJob
                 if (selectTag != null)
                 {
                     IToolInfo insertTool = VisionToolFactory.CreateToolVision((ToolType)Enum.Parse(typeof(ToolType), selectTag.ToString()));
-                    this.richTextBoxEx1.Text = insertTool.toolDescription;
+                    this.richTextBoxEx1.Text = insertTool?.toolDescription;
                 }
                 else
                 {
